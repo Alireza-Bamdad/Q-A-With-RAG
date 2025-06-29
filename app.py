@@ -36,7 +36,7 @@ def load_data():
 
 @st.cache_resource
 def load_model():
-    model_name = "HooshvareLab/bert-fa-zwnj-base"
+    model_name = "intfloat/multilingual-e5-large"
     tokenizer = AutoTokenizer.from_pretrained(model_name)
     model = AutoModel.from_pretrained(model_name)
     
@@ -52,6 +52,7 @@ def create_embeddings_and_index(_questions):
     dimension = question_embeddings.shape[1]
     index = faiss.IndexFlatIP(dimension)
     index.add(np.array(question_embeddings).astype('float32'))
+
     
     return question_embeddings, index
 
@@ -84,7 +85,7 @@ def retrieve_relevant_docs(query, questions, answers, index, k=5):
 
     relevant_docs = []
     for i, idx in enumerate(indices[0]):
-        if idx < len(questions) and scores[0][i] > 0.75:  # آستانه برای RAG
+        if idx < len(questions) and scores[0][i] > 0.8:  
             relevant_docs.append({
                 "question": questions[idx],
                 "answer": answers[idx],
@@ -172,7 +173,7 @@ def main():
     st.markdown("---")
     
 
-    api_key = GORK_API_KEY
+    api_key = "api_key"
     
     # Initialize session state
     if 'initialized' not in st.session_state:
