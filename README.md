@@ -1,8 +1,8 @@
-#🎓 (Academic Advisor)
+🎓 (Academic Advisor)
 
 A Persian RAG-based Educational Advisory System for 9th Grade Students in Iran
 
-#🌟 Overview
+🌟 Overview
 
 This is a Retrieval-Augmented Generation (RAG) system designed to help Iranian 9th-grade students with educational counseling and major selection advice. It combines:
 
@@ -14,7 +14,7 @@ This is a Retrieval-Augmented Generation (RAG) system designed to help Iranian 9
 
     Groq API (LLaMA 3.1) for generating human-like responses
 
-#✨ Features
+✨ Features
 
     Natural Persian Q&A about high school major selection
 
